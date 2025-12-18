@@ -3,45 +3,60 @@
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
+	margin: 2rem;
+	width: 100%;
 }
 
 .total-clicks {
 	text-align: center;
+
 	.counter {
 		font-size: 4rem;
 		font-weight: 700;
+		color: hsl(from var(--clr-txt-main) h s calc(l + 60));
 	}
 
 	.text {
 		margin-top: 0.5rem;
 		font-size: 2rem;
 		font-weight: 600;
-		color: var(--font-c);
 	}
 }
 
 button {
-	margin: 5rem 0 2rem;
-	background-color: var(--red);
-	color: var(--white);
+	margin: 3rem 0 2rem;
 	padding: 10px 20px;
-	border-radius: 10px;
+	font-family: inherit;
 	font-size: 30px;
 	font-weight: 600;
+	color: hsl(from var(--clr-txt-main) h s calc(l + 60));
+	background-color: var(--clr-button);
 	border: 0;
+	border-radius: 10px;
 	cursor: pointer;
 
 	&:hover {
-		background-color: blue;
+		background-color: hsl(from var(--clr-button) h s calc(l - 10));;
+	}
+
+	&:focus-visible {
+		outline: none;
 	}
 }
 
 .personal-clicks {
-	color: var(--font-c);
 	font-size: 1.5rem;
 
 	span {
-		color: var(--white);
 		font-weight: 600;
+		color: hsl(from var(--clr-txt-main) h s calc(l + 60));
 	}
+}
+
+footer {
+	position: absolute;
+	bottom: 5rem;
+	margin: 2rem;
+	font-size: 1.2rem;
+	text-align: center;
 }
