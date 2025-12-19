@@ -36,7 +36,7 @@ button {
 	cursor: pointer;
 
 	&:hover {
-		background-color: hsl(from var(--clr-button) h s calc(l - 10));;
+		background-color: hsl(from var(--clr-button) h s calc(l - 10));
 	}
 
 	&:focus-visible {
@@ -46,11 +46,11 @@ button {
 
 .personal-clicks {
 	font-size: 1.5rem;
+}
 
-	span {
-		font-weight: 600;
-		color: hsl(from var(--clr-txt-main) h s calc(l + 60));
-	}
+span {
+	font-weight: 600;
+	color: hsl(from var(--clr-txt-main) h s calc(l + 60));
 }
 
 footer {
@@ -59,4 +59,12 @@ footer {
 	margin: 2rem;
 	font-size: 1.2rem;
 	text-align: center;
+
+	& p {
+		color: var(--clr-footer);
+	}
+}
+
+a {
+	color: inherit;
 }

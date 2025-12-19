@@ -8,10 +8,11 @@ function App() {
 		<div className="content">
 			<div className="total-clicks">
 				<p className="counter">{String(count)}</p>
-				<p className="text">total clicks</p>
+				<p className="text">
+					<span>{count}</span> clicks per second
+				</p>
 			</div>
 
-			{/* <button onClick={() => setCount(count => count + 1)}>Click me!</button> */}
 			<button onClick={() => setCount(count + 1)}>Click me!</button>
 
 			<p className="personal-clicks">
@@ -19,7 +20,12 @@ function App() {
 			</p>
 
 			<footer>
-				<p>World Clicker 🌍 collects all clicks from whole world.</p>
+				<p>
+					&copy; {new Date().getFullYear()} World Clicker 🌍 Inspired by{" "}
+					<a target="_blank" href="https://scratch.mit.edu/projects/377874630/">
+						Planet Clicker by Coltroc
+					</a>
+				</p>
 			</footer>
 		</div>
 	);

@@ -18,6 +18,7 @@ html {
 	--clr-background: hsl(255, 7%, 11%);
 	--clr-txt-main: hsl(0, 0%, 30%);
 	--clr-button: hsl(0, 78%, 55%);
+	--clr-footer: hsl(231.3, 20.12%, 23.73%);
 }
 
 html {
@@ -34,5 +35,12 @@ body,
 	font-family: var(--fnt-main);
 	font-size: 1rem;
 	color: var(--clr-txt-main);
+}
+
+body {
 	background-color: var(--clr-background);
+	background-image: url(/background.jpg);
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
 }
