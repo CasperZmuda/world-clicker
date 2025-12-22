@@ -1,29 +1,70 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 
-function App() {
-	const [count, setCount] = useState<number>(() => {
-		const saved = localStorage.getItem("clicked");
-		return saved ? Number(saved) : 0;
+const App = () => {
+	// TOTAL
+	const [totalCount, setTotalCount] = useState<number>(() => {
+		const savedTotalClicks = localStorage.getItem("total_clicks");
+		return savedTotalClicks ? Number(savedTotalClicks) : 0;
+	});
+
+	const clicksArr: string[] = [];
+
+	useEffect(() => {
+		localStorage.setItem("total_clicks", String(totalCount));
+		clicksArr.push("click");
+	}, [totalCount]);
+
+	// let cps = 0;
+	// setInterval(() => {
+	// 	console.log(`CPS: ${cps}`);
+	// 	cps = 0;
+	// }, 1000);
+
+	// if (cps > 20) {
+	// 	console.warn("Warning!");
+	// }
+
+	// SESSION - reset on a new day
+	const [countOnSession, setCountOnSession] = useState<number>(() => {
+		const savedSessionClicks = localStorage.getItem("session_clicks");
+		return savedSessionClicks ? Number(savedSessionClicks) : 0;
 	});
 
 	useEffect(() => {
-		localStorage.setItem("clicked", String(count));
-	}, [count]);
+		localStorage.setItem("session_clicks", String(countOnSession));
+	}, [countOnSession]);
+
+	// const resetSession = () => {
+	// 	localStorage.setItem("session_clicks", String(0));
+	// };
+
+	const date = new Date().getHours();
+	// const date = 0;
+	if (date === 0) {
+		console.log("NOWY DZIEŃ");
+	}
+
+	const handleActionsOnClick = () => {
+		setTotalCount(totalCount + 1);
+		setCountOnSession(countOnSession + 1);
+	};
 
 	return (
 		<div className="content">
 			<div className="total-clicks">
-				<p className="counter">{String(count)}</p>
+				<p className="counter">{String(totalCount)}</p>
 				<p className="text">
-					<span>{count}</span> clicks per second
+					<span>{}</span> clicks per second
 				</p>
 			</div>
 
-			<button onClick={() => setCount(count + 1)}>Click me!</button>
+			<button onClick={() => handleActionsOnClick()}>Click</button>
 
 			<p className="personal-clicks">
-				You've clicked <span>{count}</span> times
+				You've clicked <span>{String(countOnSession)}</span>
+				{countOnSession === 1 ? " time " : " times "}
+				today.
 			</p>
 
 			<footer>
@@ -36,6 +77,6 @@ function App() {
 			</footer>
 		</div>
 	);
-}
+};
 
 export default App;
